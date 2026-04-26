@@ -1,0 +1,49 @@
+<!DOCTYPE html><html>
+<head>
+    <title>Login Page</title>
+</head>
+<body style="margin:0; font-family: Arial; display:flex; justify-content:center; align-items:center; height:100vh; background: linear-gradient(135deg,#6a11cb,#2575fc); overflow:hidden;"><div id="box" style="background:white; padding:30px; border-radius:20px; width:300px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.2); transform: scale(0.8); opacity:0; transition: all 0.6s ease;">
+    <h2 style="margin-bottom:20px;">Login</h2><input id="name" type="text" placeholder="Enter Name" 
+style="width:90%; padding:10px; margin:10px 0; border-radius:10px; border:1px solid #ccc; outline:none; transition:0.3s;">
+
+<input id="password" type="password" placeholder="Enter Password" 
+style="width:90%; padding:10px; margin:10px 0; border-radius:10px; border:1px solid #ccc; outline:none; transition:0.3s;">
+
+<button onclick="login()" 
+style="margin-top:15px; padding:10px 20px; border:none; border-radius:20px; background:#2575fc; color:white; cursor:pointer; transition:0.3s;">
+    Register
+</button>
+
+<p id="msg" style="margin-top:20px; font-weight:bold;"></p>
+
+</div><script>
+// Entry animation
+window.onload = function(){
+    let box = document.getElementById("box");
+    box.style.transform = "scale(1)";
+    box.style.opacity = "1";
+}
+
+function login(){
+    let name = document.getElementById("name").value;
+    let pass = document.getElementById("password").value;
+    let msg = document.getElementById("msg");
+
+    if(name === "" || pass === ""){
+        msg.innerHTML = "Please fill all fields";
+        msg.style.color = "red";
+        return;
+    }
+
+    // Success animation
+    msg.style.opacity = "0";
+    setTimeout(() => {
+        msg.innerHTML = "@" + name + " welcome to login world 🌎";
+        msg.style.color = "green";
+        msg.style.transform = "translateY(10px)";
+        msg.style.transition = "0.5s";
+        msg.style.opacity = "1";
+    }, 300);
+}
+</script></body>
+</html>
